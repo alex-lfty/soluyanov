@@ -1,0 +1,154 @@
+---
+permalink: /index.html
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="{{ site.description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% for filename in site.styles %}
+    <link rel="stylesheet" type="text/css" href="/styles/{{ filename }}.css" />
+    {% endfor %}
+    <title>{{ site.title }}</title>
+
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:url" content="{{ site.baseUrl }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ site.title }}" />
+    <meta property="og:description" content="{{ site.description }}" />
+    {# <meta property="og:image" content="{{ site.baseUrl }}/img/card.jpg" /> #}
+    <!-- Twitter Meta Tags -->
+
+    {# <meta name="twitter:card" content="summary_large_image" /> #}
+    {# <meta property="twitter:domain" content="freeukraintsev.org" /> #}
+    <meta property="twitter:url" content="{{ site.baseUrl }}" />
+    <meta name="twitter:title" content="{{ site.title }}" />
+    <meta name="twitter:description" content="{{ site.description }}" />
+    {# <meta name="twitter:image" content="{{ site.baseUrl }}/img/card.jpg" /> #}
+
+    <link rel="stylesheet" href="../lib/glide.core.min.css" />
+    <script src="../lib/glide.min.js"></script>
+    {# {% block css_inject %}{% endblock %}  #}
+  </head>
+  <body>
+    <header class="site-header">
+      {% include "layouts/menu.njk" %}
+      <div id="lead" class="container">
+          <div class="photo">
+            <img src="/img/soluyanov_photo.jpg" />
+          </div>
+          <div class="title">
+            <h1><span>Глеб </span><span>Солуянов</span></h1>
+            <h3>Кандидат в муниципальные депутаты района Измайлово</h3>
+          </div>
+        {# <div class="intro"> #}
+          <div class="intro-text">
+            {% markdown %} {%- include "./content/lead.md" -%} {% endmarkdown %}
+          </div>
+        {# </div> #}
+      </div>
+    </header>
+    <main>
+      <section id="about">
+        <div class="content">
+          <div class="wrapper">
+            {% markdown %} {%- include "./content/bio.md" -%} {% endmarkdown %}
+          </div>
+        </div>
+      </section>
+      <section id="program">
+        <div class="content">
+          {% markdown %}
+            {%- include "./content/program/title.md" -%}
+          {% endmarkdown %}
+          <div class="glide">
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="/img/arrow-left.svg" /></button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="/img/arrow-right.svg" /></button>
+            </div>
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                {% for slide in site.programSlides %}
+                  <li class="glide__slide">
+                    <div>
+                      {% markdown %} {% include "./content/program/slides/" + slide + ".md" %} {% endmarkdown %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              {% for index in site.programSlides %}
+                <button class="glide__bullet" data-glide-dir="={{index - 1}}"></button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="team">
+        <div class="content">
+          <div class="team-intro">
+            {% markdown %}
+              {%- include "./content/team/intro.md" -%}
+            {% endmarkdown %}
+          </div>
+
+          <div class="team-members">
+            <div class="team-member">
+              {% markdown %}
+                {%- include "./content/team/olga.md" -%}
+              {% endmarkdown %}
+            </div>
+            <div class="team-member">
+              {% markdown %}
+                {%- include "./content/team/ilya.md" -%}
+              {% endmarkdown %}
+            </div>
+            <div class="team-member">
+              {% markdown %}
+                {%- include "./content/team/anastasiya.md" -%}
+              {% endmarkdown %}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="support">
+        <div class="content">
+            {% markdown %}
+              {%- include "./content/support/title.md" -%}
+            {% endmarkdown %}
+            <div class="desc">
+              <div>
+              {% markdown %}
+                {%- include "./content/support/desc.md" -%}
+              {% endmarkdown %}
+              </div>
+              <div>
+              {% markdown %}
+                {%- include "./content/support/aside.md" -%}
+              {% endmarkdown %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section id="volunteer">
+        <div class="content">Или поработайте на него бесплатно</div>
+      </section>
+      <section id="election-control">
+        <div class="content">Присмотрите за выборами немножк</div>
+      </section>
+{#       <section role="campaings">
+        <div class="content">Глеб тут уже намутил всякого</div>
+      </section>
+ #}    </main>
+    <footer></footer>
+    <script>
+      new Glide(".glide").mount()
+    </script>
+  </body>
+</html>

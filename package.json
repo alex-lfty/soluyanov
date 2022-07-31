@@ -1,0 +1,19 @@
+{
+  "name": "soluyanov2022.ru",
+  "version": "1.0.0",
+  "description": "Сайт предвыборной кампании Глеба Солуянова",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --formats=html,njk,md,jpg,png,css,svg --input=src",
+    "build": "npx @11ty/eleventy --input=src --formats=html,njk,md,jpg,png,css,svg",
+    "build:incremental": "npx @11ty/eleventy --incremental --input=src --formats=html,njk,md,jpg,png,css,svg"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1"
+  },
+  "author": "alex@lfty.team",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@glidejs/glide": "^3.5.2"
+  }
+}
