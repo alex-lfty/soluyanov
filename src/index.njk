@@ -9,7 +9,7 @@ permalink: /index.html
     <meta name="description" content="{{ site.description }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {% for filename in site.styles %}
-    <link rel="stylesheet" type="text/css" href="/styles/{{ filename }}.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/{{ filename }}.css" />
     {% endfor %}
     <title>{{ site.title }}</title>
 
@@ -37,7 +37,7 @@ permalink: /index.html
       {% include "layouts/menu.njk" %}
       <div id="lead" class="container">
           <div class="photo">
-            <img src="/img/soluyanov_photo.jpg" />
+            <img src="./img/soluyanov_photo.jpg" />
           </div>
           <div class="title">
             <h1><span>Глеб </span><span>Солуянов</span></h1>
@@ -65,8 +65,8 @@ permalink: /index.html
           {% endmarkdown %}
           <div class="glide">
             <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="/img/arrow-left.svg" /></button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="/img/arrow-right.svg" /></button>
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="./img/arrow-left.svg" /></button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="./img/arrow-right.svg" /></button>
             </div>
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
