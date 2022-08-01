@@ -253,23 +253,40 @@ section#support .desc div:last-child {
 .glide__bullet--active {
   background-color: #3e3e3e;
 }
-.glide__arrows {
-  display: flex;
-  height: calc(100% - 30px);
-  justify-content: space-between;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+
+@media only screen and (max-width: 960px) {
+  .glide__arrows {
+    display: none;
+  }
+
+  .glide__slide div {
+    margin: 0;
+    width: 100%;
+  }
 }
-.glide__arrow {
-  background-color: #eee;
-  border: none;
-  margin: 0;
-  z-index: 2;
-}
-.glide__arrow img {
-  display: block;
-  height: 46px;
-  width: 27px;
+@media only screen and (min-width: 961px) {
+  .glide__slide div {
+    width: calc(100% - 200px);
+    margin: 0 100px;
+  }
+  .glide__arrows {
+    display: flex;
+    height: calc(100% - 30px);
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .glide__arrow {
+    background-color: #eee;
+    border: none;
+    margin: 0;
+    z-index: 2;
+  }
+  .glide__arrow img {
+    display: block;
+    height: 46px;
+    width: 27px;
+  }
 }
