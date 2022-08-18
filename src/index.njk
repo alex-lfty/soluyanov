@@ -18,36 +18,47 @@ permalink: /index.html
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ site.title }}" />
     <meta property="og:description" content="{{ site.description }}" />
-    {# <meta property="og:image" content="{{ site.baseUrl }}/img/card.jpg" /> #}
+    {#
+    <meta property="og:image" content="{{ site.baseUrl }}/img/card.jpg" />
+    #}
     <!-- Twitter Meta Tags -->
 
-    {# <meta name="twitter:card" content="summary_large_image" /> #}
-    {# <meta property="twitter:domain" content="freeukraintsev.org" /> #}
+    {#
+    <meta name="twitter:card" content="summary_large_image" />
+    #} {#
+    <meta property="twitter:domain" content="freeukraintsev.org" />
+    #}
     <meta property="twitter:url" content="{{ site.baseUrl }}" />
     <meta name="twitter:title" content="{{ site.title }}" />
     <meta name="twitter:description" content="{{ site.description }}" />
-    {# <meta name="twitter:image" content="{{ site.baseUrl }}/img/card.jpg" /> #}
+    {#
+    <meta name="twitter:image" content="{{ site.baseUrl }}/img/card.jpg" />
+    #}
 
     <link rel="stylesheet" href="./lib/glide.core.min.css" />
     <script src="./lib/glide.min.js"></script>
-    {# {% block css_inject %}{% endblock %}  #}
+    {# {% block css_inject %}{% endblock %} #}
   </head>
   <body>
     <header class="site-header">
       {% include "layouts/menu.njk" %}
       <div id="lead" class="container">
-          <div class="photo">
-            <img src="./img/soluyanov_photo.jpg" />
-          </div>
-          <div class="title">
-            <h1><span>Глеб </span><span>Солуянов</span></h1>
-            <h3>Кандидат в муниципальные депутаты района Измайлово</h3>
-          </div>
-        {# <div class="intro"> #}
+        <div class="photo">
+          <img src="./img/soluyanov_photo.jpg" />
+        </div>
+        <div class="title">
+          <h1><span>Глеб </span><span>Солуянов</span></h1>
+          <h3>Кандидат в муниципальные депутаты района Измайлово</h3>
+        </div>
+        {#
+        <div class="intro">
+          #}
           <div class="intro-text">
             {% markdown %} {%- include "./content/lead.md" -%} {% endmarkdown %}
           </div>
-        {# </div> #}
+          {#
+        </div>
+        #}
       </div>
     </header>
     <main>
@@ -60,29 +71,42 @@ permalink: /index.html
       </section>
       <section id="program">
         <div class="content">
-          {% markdown %}
-            {%- include "./content/program/title.md" -%}
-          {% endmarkdown %}
+          {% markdown %} {%- include "./content/program/title.md" -%} {%
+          endmarkdown %}
           <div class="glide">
             <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><img src="./img/arrow-left.svg" /></button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><img src="./img/arrow-right.svg" /></button>
+              <button
+                class="glide__arrow glide__arrow--left"
+                data-glide-dir="<"
+              >
+                <img src="./img/arrow-left.svg" />
+              </button>
+              <button
+                class="glide__arrow glide__arrow--right"
+                data-glide-dir=">"
+              >
+                <img src="./img/arrow-right.svg" />
+              </button>
             </div>
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
                 {% for slide in site.programSlides %}
-                  <li class="glide__slide">
-                    <div>
-                      {% markdown %} {% include "./content/program/slides/" + slide + ".md" %} {% endmarkdown %}
-                    </div>
-                  </li>
+                <li class="glide__slide">
+                  <div>
+                    {% markdown %} {% include "./content/program/slides/" +
+                    slide + ".md" %} {% endmarkdown %}
+                  </div>
+                </li>
                 {% endfor %}
               </ul>
             </div>
 
             <div class="glide__bullets" data-glide-el="controls[nav]">
               {% for index in site.programSlides %}
-                <button class="glide__bullet" data-glide-dir="={{index - 1}}"></button>
+              <button
+                class="glide__bullet"
+                data-glide-dir="={{index - 1}}"
+              ></button>
               {% endfor %}
             </div>
           </div>
@@ -91,49 +115,73 @@ permalink: /index.html
       <section id="team">
         <div class="content">
           <div class="team-intro">
-            {% markdown %}
-              {%- include "./content/team/intro.md" -%}
-            {% endmarkdown %}
+            {% markdown %} {%- include "./content/team/intro.md" -%} {%
+            endmarkdown %}
           </div>
 
           <div class="team-members">
             <div class="team-member">
-              {% markdown %}
-                {%- include "./content/team/olga.md" -%}
-              {% endmarkdown %}
+              {% markdown %} {%- include "./content/team/olga.md" -%} {%
+              endmarkdown %}
             </div>
             <div class="team-member">
-              {% markdown %}
-                {%- include "./content/team/ilya.md" -%}
-              {% endmarkdown %}
+              {% markdown %} {%- include "./content/team/ilya.md" -%} {%
+              endmarkdown %}
             </div>
-            <div class="team-member">
-              {% markdown %}
-                {%- include "./content/team/anastasiya.md" -%}
-              {% endmarkdown %}
+          </div>
+          <div class="join-team two-column">
+            <div>
+              Присоединяйся к команде!
+              <img />
+            </div>
+            <div>
+              {% markdown %} {%- include "./content/team/volunteers.md" %} {%
+              endmarkdown %}
+              <button>Стать волонтёром</button>
+              {% markdown %} {%- include "./content/team/observers.md" %} {%
+              endmarkdown %}
+              <button>Стать наблюдателем</button>
             </div>
           </div>
         </div>
       </section>
       <section id="support">
         <div class="content">
-            {% markdown %}
-              {%- include "./content/support/title.md" -%}
-            {% endmarkdown %}
-            <div class="desc">
-              <div>
+          {% markdown %}
+            {%- include "./content/support/title.md" -%} {% endmarkdown %}
+          <div class="desc two-column">
+            <div>
               {% markdown %}
                 {%- include "./content/support/desc.md" -%}
               {% endmarkdown %}
-              </div>
-              <div>
+            </div>
+            <div>
               {% markdown %}
-                {%- include "./content/support/aside.md" -%}
+               {%- include "./content/support/aside.md" -%}
               {% endmarkdown %}
-              </div>
             </div>
           </div>
+          <div class="fundrise-target two-column">
+            <div>
+              {% markdown %}
+               {%- include "./content/support/target.md" -%}
+              {% endmarkdown %}
+            </div>
+            <div></div>
+          </div>
+          <div class="fundrise-info two-column">
+            <div>
 
+              {% markdown %}
+               {%- include "./content/support/agit.md" -%}
+              {% endmarkdown %}
+            </div>
+            <div>
+              {% markdown %}
+               {%- include "./content/support/headquarters.md" -%}
+              {% endmarkdown %}
+            </div>
+          </div>
         </div>
       </section>
       <section id="volunteer">
@@ -142,13 +190,15 @@ permalink: /index.html
       <section id="election-control">
         <div class="content">Присмотрите за выборами немножк</div>
       </section>
-{#       <section role="campaings">
+      {#
+      <section role="campaings">
         <div class="content">Глеб тут уже намутил всякого</div>
       </section>
- #}    </main>
+      #}
+    </main>
     <footer></footer>
     <script>
-      new Glide(".glide").mount()
+      new Glide(".glide").mount();
     </script>
   </body>
 </html>
