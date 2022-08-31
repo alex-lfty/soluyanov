@@ -151,6 +151,15 @@ main {
 .two-column div:last-child {
   box-sizing: border-box;
 }
+@media only screen and (max-width: 960px) {
+  .two-column {
+    flex-direction: column;
+  }
+  .two-column > div {
+    width: 100%;
+    margin: 1em 0;
+  }
+}
 section#about .content {
   background-color: var(--color-bg-secondary);
   padding: 100px 1em;
@@ -215,7 +224,7 @@ section#support .desc div:last-child {
   section#support .desc {
     flex-direction: column;
   }
-  section#support .desc div {
+  section#support .desc > div {
     width: 100%;
   }
 }
@@ -302,6 +311,7 @@ section#support .desc div:last-child {
 .fundrise-target {
   background-color: #fa5c43;
   color: white;
+  margin: 70px 0;
   padding: 40px 50px;
 }
 
