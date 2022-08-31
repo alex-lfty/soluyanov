@@ -183,6 +183,17 @@ section#team .team-member h3 {
   font-size: 24px;
   margin: 15px 0;
 }
+.join-team {
+  margin-top: 80px;
+}
+.join-team img {
+  width: 100%;
+}
+.join-team p:first-child {
+  margin-top: 0;
+}
+
+.join-team
 
 @media only screen and (max-width: 960px) {
   section#team .team-members {
