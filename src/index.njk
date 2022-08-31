@@ -162,12 +162,22 @@ permalink: /index.html
             </div>
           </div>
           <div class="fundrise-target two-column">
-            <div>
+            <div class="newspaper-about">
               {% markdown %}
                {%- include "./content/support/target.md" -%}
               {% endmarkdown %}
             </div>
-            <div></div>
+            <div class="newspaper-progress">
+              <div class="icon">
+                <img src="./img/newspaper.svg" alt="газета">
+              </div>
+              <h3>Спасибо за вашу <br /> солидарность!</h3>
+              <div class="progress">
+                <div>Нужно <span class="value">{{ site.fundrise.target.toString() }} ₽</span></div>
+                <progress value="{{ site.fundrise.current.valueOf() }}" max="{{ site.fundrise.target.valueOf() }}" class="progress-bar"></progress>
+                <div>Собрано <span class="value">{{ site.fundrise.current.toString() }} ₽</span></div>
+              </div>
+            </div>
           </div>
           <div class="fundrise-info two-column">
             <div>
