@@ -381,6 +381,14 @@ section#support .desc div:last-child {
 .fundrise-who .donators-info > div:last-child {
   margin-bottom: 0;
 }
+.fundrise-who .donators-info strong {
+  line-height: 37px;
+}
+
+.fundrise-who img {
+  float: left;
+  margin-right: 20px;
+}
 
 .fundrise-who .donation-advise {
   background-color: var(--color-bg-gray);
