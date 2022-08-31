@@ -140,22 +140,22 @@ main {
   font-weight: normal;
 }
 
-.two-column {
+.two-columns {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.two-column > div {
+.two-columns > div {
   width: 49%;
 }
-.two-column div:last-child {
+.two-columns div:last-child {
   box-sizing: border-box;
 }
 @media only screen and (max-width: 960px) {
-  .two-column {
+  .two-columns {
     flex-direction: column;
   }
-  .two-column > div {
+  .two-columns > div {
     width: 100%;
     margin: 1em 0;
   }
@@ -358,4 +358,31 @@ section#support .desc div:last-child {
 }
 .progress-bar::-moz-progress-bar {
   /* style rules */
+}
+.fundrise-what .icon {
+  background-color: var(--color);
+  display: inline-block;
+  padding: 10px 18px;
+}
+.fundrise-what strong {
+  display: block;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.fundrise-who {
+  border: 4px solid var(--color);
+  margin: 60px 0;
+  padding: 80px 70px;
+}
+.fundrise-who .donators-info > div {
+  margin-bottom: 50px;
+}
+.fundrise-who .donators-info > div:last-child {
+  margin-bottom: 0;
+}
+
+.fundrise-who .donation-advise {
+  background-color: var(--color-bg-gray);
+  padding: 40px;
 }

@@ -129,7 +129,7 @@ permalink: /index.html
               endmarkdown %}
             </div>
           </div>
-          <div class="join-team two-column">
+          <div class="join-team two-columns">
             <div>
               Присоединяйся к команде!
               <img />
@@ -147,52 +147,90 @@ permalink: /index.html
       </section>
       <section id="support">
         <div class="content">
-          {% markdown %}
-            {%- include "./content/support/title.md" -%} {% endmarkdown %}
-          <div class="desc two-column">
+          {% markdown %} {%- include "./content/support/title.md" -%} {%
+          endmarkdown %}
+          <div class="desc two-columns">
             <div>
-              {% markdown %}
-                {%- include "./content/support/desc.md" -%}
-              {% endmarkdown %}
+              {% markdown %} {%- include "./content/support/desc.md" -%} {%
+              endmarkdown %}
             </div>
             <div>
-              {% markdown %}
-               {%- include "./content/support/aside.md" -%}
-              {% endmarkdown %}
+              {% markdown %} {%- include "./content/support/aside.md" -%} {%
+              endmarkdown %}
             </div>
           </div>
-          <div class="fundrise-target two-column">
+          <div class="fundrise-target two-columns">
             <div class="newspaper-about">
-              {% markdown %}
-               {%- include "./content/support/target.md" -%}
-              {% endmarkdown %}
+              {% markdown %} {%- include "./content/support/target.md" -%} {%
+              endmarkdown %}
             </div>
             <div class="newspaper-progress">
               <div class="icon">
-                <img src="./img/newspaper.svg" alt="газета">
+                <img src="./img/newspaper.svg" alt="газета" />
               </div>
-              <h3>Спасибо за вашу <br /> солидарность!</h3>
+              <h3>
+                Спасибо за вашу <br />
+                солидарность!
+              </h3>
               <div class="progress">
-                <div>Нужно <span class="value">{{ site.fundrise.target.toString() }} ₽</span></div>
-                <progress value="{{ site.fundrise.current.valueOf() }}" max="{{ site.fundrise.target.valueOf() }}" class="progress-bar"></progress>
-                <div>Собрано <span class="value">{{ site.fundrise.current.toString() }} ₽</span></div>
+                <div>
+                  Нужно
+                  <span class="value"
+                    >{{ site.fundrise.target.toString() }} ₽</span
+                  >
+                </div>
+                <progress
+                  value="{{ site.fundrise.current.valueOf() }}"
+                  max="{{ site.fundrise.target.valueOf() }}"
+                  class="progress-bar"
+                ></progress>
+                <div>
+                  Собрано
+                  <span class="value"
+                    >{{ site.fundrise.current.toString() }} ₽</span
+                  >
+                </div>
               </div>
             </div>
           </div>
-          <div class="fundrise-info">
+          <div class="fundrise-what">
             <h2>На что ещё собираем деньги</h2>
             <div class="two-columns">
-            <div>
-
-              {% markdown %}
-               {%- include "./content/support/agit.md" -%}
-              {% endmarkdown %}
+              <div>
+                <div class="icon">
+                  <img src="./img/listovka.svg" alt="Агитация" />
+                </div>
+                {% markdown %} {%- include "./content/support/agit.md" -%} {%
+                endmarkdown %}
+              </div>
+              <div>
+                <div class="icon">
+                  <img src="./img/shtab.svg" alt="Штаб" />
+                </div>
+                {% markdown %} {%- include "./content/support/headquarters.md"
+                -%} {% endmarkdown %}
+              </div>
+            </div>
+          </div>
+          <div class="fundrise-who two-columns">
+            <div class="donators-info">
+              <div class="who-can">
+                {% markdown %}
+                  {%- include "./content/support/who-can.md" -%}
+                {% endmarkdown %}
+              </div>
+              <div class="who-cannot">
+                {% markdown %}
+                  {%- include "./content/support/who-cannot.md" -%}
+                {% endmarkdown %}
+              </div>
             </div>
             <div>
-              {% markdown %}
-               {%- include "./content/support/headquarters.md" -%}
-              {% endmarkdown %}
-            </div>
+              <div class="donation-advise">
+                {% markdown %}
+                  {%- include "./content/support/advise.md" -%}
+                {% endmarkdown %}
+              </div>
             </div>
           </div>
         </div>
