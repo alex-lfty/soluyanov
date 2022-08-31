@@ -119,14 +119,22 @@ permalink: /index.html
             endmarkdown %}
           </div>
 
-          <div class="team-members">
+          <div class="team-members two-columns">
             <div class="team-member">
-              {% markdown %} {%- include "./content/team/olga.md" -%} {%
-              endmarkdown %}
+              <img src="./img/sherbitskaya.jpg" alt="Ольга Щербицкая фото" />
+              <div>
+                {% markdown %}
+                  {%- include "./content/team/olga.md" -%}
+                {% endmarkdown %}
+              </div>
             </div>
             <div class="team-member">
-              {% markdown %} {%- include "./content/team/ilya.md" -%} {%
-              endmarkdown %}
+              <img src="./img/alyoshin.jpg" alt="Илья Алёшин фото" />
+
+              <div>
+                {% markdown %} {%- include "./content/team/ilya.md" -%} {%
+                endmarkdown %}
+              </div>
             </div>
           </div>
           <div class="join-team two-columns">
@@ -214,23 +222,20 @@ permalink: /index.html
           <div class="fundrise-who two-columns">
             <div class="donators-info">
               <div class="who-can">
-                <img src="./img/yes.png">
-                {% markdown %}
-                  {%- include "./content/support/who-can.md" -%}
-                {% endmarkdown %}
+                <img src="./img/yes.png" />
+                {% markdown %} {%- include "./content/support/who-can.md" -%} {%
+                endmarkdown %}
               </div>
               <div class="who-cannot">
-                <img src="./img/no.png">
-                {% markdown %}
-                  {%- include "./content/support/who-cannot.md" -%}
+                <img src="./img/no.png" />
+                {% markdown %} {%- include "./content/support/who-cannot.md" -%}
                 {% endmarkdown %}
               </div>
             </div>
             <div>
               <div class="donation-advise">
-                {% markdown %}
-                  {%- include "./content/support/advise.md" -%}
-                {% endmarkdown %}
+                {% markdown %} {%- include "./content/support/advise.md" -%} {%
+                endmarkdown %}
               </div>
             </div>
           </div>
