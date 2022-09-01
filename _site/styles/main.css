@@ -65,6 +65,12 @@ header menu a {
 #lead .intro-text p:last-child {
   margin-bottom: 0;
 }
+#lead a.social-link {
+  color: var(--color-accent);
+  display: inline-block;
+  margin-right: 2em;
+  margin-top: 1em;
+}
 
 @media only screen and (max-width: 960px) {
   #lead {
@@ -441,4 +447,10 @@ section#support .desc div:last-child {
 .bank-props {
   background-color: var(--color-bg-gray);
   padding: 50px 30px;
+}
+
+footer {
+  background-color: var(--color);
+  width: 100%;
+  max-width: 100%;
 }

@@ -5,6 +5,10 @@ module.exports = {
     "Кандидат в муниципальные депутаты Москвы по району Измайлово Глеб Солуянов",
   styles: ["fonts", "mvp", "main"],
   programSlides: [1, 2, 3, 4, 5, 6],
+  social: {
+    telegram: "",
+    vk: ""
+  },
   fundrise: {
     target: {
       value: 70000,

@@ -49,15 +49,11 @@ permalink: /index.html
           <h1><span>Глеб </span><span>Солуянов</span></h1>
           <h3>Кандидат в муниципальные депутаты района Измайлово</h3>
         </div>
-        {#
-        <div class="intro">
-          #}
-          <div class="intro-text">
-            {% markdown %} {%- include "./content/lead.md" -%} {% endmarkdown %}
-          </div>
-          {#
+        <div class="intro-text">
+          {% markdown %} {%- include "./content/lead.md" -%} {% endmarkdown %}
+          <a class="social-link" href="{{ site.social.telegram }}">Telegram</a>
+          <a class="social-link" href="{{ site.social.vk }}">ВКонтакте</a>
         </div>
-        #}
       </div>
     </header>
     <main>
