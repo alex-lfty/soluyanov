@@ -6,7 +6,7 @@ module.exports = {
   styles: ["fonts", "mvp", "main"],
   programSlides: [1, 2, 3, 4, 5, 6],
   social: {
-    telegram: "",
+    telegram: "https://t.me/soluyanovgleb",
     vk: ""
   },
   fundrise: {
