@@ -234,8 +234,43 @@ permalink: /index.html
             </div>
             <div>
               <div class="donation-advise">
-                {% markdown %} {%- include "./content/support/advise.md" -%} {%
-                endmarkdown %}
+                {% markdown %}
+                  {%- include "./content/support/advise.md" -%}
+                {% endmarkdown %}
+              </div>
+            </div>
+          </div>
+          <div class="donation-instructions">
+            <h2>Как осуществить пожертвование на избирательный счёт?</h2>
+            <strong>
+              Одно физическое лицо не может перевести суммарно более 10 000 ₽.
+            </strong>
+          </div>
+          <div class="accordion">
+            <div class="sberbank">
+              <span>Для физических лиц — пользователей «Сбербанк Онлайн»</span>
+              <div>
+                {% markdown %}
+                  {%- include "./content/support/sber/guide.md" -%}
+                {% endmarkdown %}
+              </div>
+            </div>
+            <div class="generic-bank">
+              <span>Для физических лиц — пользователей других банков</span>
+              <div>
+                {% markdown %}
+                  {%- include "./content/support/generic/first.md" -%}
+                {% endmarkdown %}
+              </div>
+              <div>
+                {% markdown %}
+                  {%- include "./content/support/generic/props.md" -%}
+                {% endmarkdown %}
+              </div>
+              <div>
+                {% markdown %}
+                  {%- include "./content/support/generic/last.md" -%}
+                {% endmarkdown %}
               </div>
             </div>
           </div>
