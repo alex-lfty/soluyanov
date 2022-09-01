@@ -34,7 +34,6 @@ permalink: /index.html
     {#
     <meta name="twitter:image" content="{{ site.baseUrl }}/img/card.jpg" />
     #}
-
     <link rel="stylesheet" href="./lib/glide.core.min.css" />
     <script src="./lib/glide.min.js"></script>
     {# {% block css_inject %}{% endblock %} #}
@@ -93,14 +92,16 @@ permalink: /index.html
                 {% for slide in site.programSlides %}
                 <li class="glide__slide">
                   <div>
-                    {% markdown %} {% include "./content/program/slides/" +
-                    slide + ".md" %} {% endmarkdown %}
+                    <img src="{{ './img/program/program' + slide + '.svg'}}" />
+                    <div class="slide-body">
+                      {% markdown %}{% include "./content/program/slides/" +
+                      slide + ".md" %}{% endmarkdown %}
+                    </div>
                   </div>
                 </li>
                 {% endfor %}
               </ul>
             </div>
-
             <div class="glide__bullets" data-glide-el="controls[nav]">
               {% for index in site.programSlides %}
               <button
@@ -277,29 +278,33 @@ permalink: /index.html
     </main>
     <footer></footer>
     <script>
-      window.onload = function() {
+      window.onload = function () {
         new Glide(".glide").mount();
         const sberBlock = {
           opened: false,
           header: document.querySelector(".sberbank .guide-title"),
           body: document.querySelector(".sberbank .guide-body"),
-          height: 0
+          height: 0,
         };
-        sberBlock.height = sberBlock.body.getBoundingClientRect().height
+        sberBlock.height = sberBlock.body.getBoundingClientRect().height;
         sberBlock.body.style.height = 0;
         sberBlock.header.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
           sberBlock.opened = !sberBlock.opened;
-          sberBlock.body.style.height = sberBlock.opened ? sberBlock.height + "px" : "0";
+          sberBlock.body.style.height = sberBlock.opened
+            ? sberBlock.height + "px"
+            : "0";
         });
+
         const genericBankBlock = {
           opened: false,
           header: document.querySelector(".generic-bank .guide-title"),
           body: document.querySelector(".generic-bank .guide-body"),
-          height: 0
+          height: 0,
         };
-        genericBankBlock.height = genericBankBlock.body.getBoundingClientRect().height
+        genericBankBlock.height =
+          genericBankBlock.body.getBoundingClientRect().height;
         genericBankBlock.body.style.height = 0;
         genericBankBlock.header.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -309,7 +314,7 @@ permalink: /index.html
             ? genericBankBlock.height + "px"
             : 0;
         });
-    }
+      };
     </script>
   </body>
 </html>

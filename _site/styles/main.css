@@ -15,7 +15,7 @@ header {
 */
 header menu ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0;
   font-weight: medium;
 }
@@ -173,13 +173,6 @@ section#team .team-intro {
   text-align: center;
   margin: 50px 0;
 }
-/*section#team .team-members {
-  display: flex;
-  font-size: 16px;
-  justify-content: center;
-  margin-top: 80px;
-}
-*/
 
 .team-member {
   display: flex;
@@ -267,14 +260,24 @@ section#support .desc div:last-child {
 #program h3 {
   margin-top: 0;
 }
+
 .glide__slide {
+  /*padding: 1em 0;*/
+  padding-bottom: 1em;
   z-index: 1;
 }
-.glide__slide div {
+.glide__slide > div {
   width: calc(100% - 200px);
   margin: 0 100px;
+  display: flex;
   position: relative;
   z-index: 2;
+}
+.glide__slide img {
+  background-color: var(--color-accent);
+  margin-right: 1em;
+  height: 100px;
+  width: 100px;
 }
 .glide__bullets {
   display: flex;
@@ -308,7 +311,7 @@ section#support .desc div:last-child {
 @media only screen and (min-width: 961px) {
   .glide__slide div {
     width: calc(100% - 200px);
-    margin: 0 100px;
+    /*margin: 0 100px;*/
   }
   .glide__arrows {
     display: flex;
@@ -356,7 +359,7 @@ section#support .desc div:last-child {
   display: block;
   width: 100%;
 }
-.fundrise-target .progress div:first-child{
+.fundrise-target .progress div:first-child {
   text-align: right;
 }
 .fundrise-target .progress .value {
@@ -441,8 +444,8 @@ section#support .desc div:last-child {
 }
 
 .accordion .guide-body {
- overflow: hidden;
- transition: height 0.5s;
+  overflow: hidden;
+  transition: height 0.5s;
 }
 
 .accordion .guide-body img {
