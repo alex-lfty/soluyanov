@@ -201,36 +201,6 @@ section#team .team-member div {
   margin-top: 0;
 }
 
-/*@media only screen and (max-width: 960px) {
-  section#team .team-members {
-    flex-direction: column;
-  }
-
-  section#team .team-member:not(:last-child) {
-    margin-bottom: 30px;
-  }
-  section#team .team-member h3 {
-    margin-top: 0;
-  }
-  section#team .team-member p:first-child {
-    float: left;
-    margin: 0 30px 0 0;
-    width: auto;
-  }
-}
-*/
-/*@media only screen and (min-width: 961px) {
-  section#team .team-member {
-    max-width: 250px;
-    margin: 0 40px;
-  }
-}
-*/
-/*section#support .desc {
-  display: flex;
-  justify-content: space-between;
-}
-*/
 section#support .desc div:last-child {
   background-color: var(--color-bg-secondary);
   box-sizing: border-box;
@@ -369,6 +339,8 @@ section#support .desc div:last-child {
   font-weight: bold;
 }
 .fundrise-target .progress-bar {
+  background-color: white;
+  opacity: 1;
   appearance: none;
   height: 6px;
   margin: 1em 0;
@@ -385,7 +357,11 @@ section#support .desc div:last-child {
   height: 12px;
 }
 .progress-bar::-moz-progress-bar {
-  /* style rules */
+  background-color: white;
+  height: 12px;
+  position: relative;
+  top: -3px;
+  margin-top: -3px;
 }
 .fundrise-what .icon {
   background-color: var(--color);
