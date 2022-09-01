@@ -417,3 +417,41 @@ section#support .desc div:last-child {
   background-color: var(--color-bg-gray);
   padding: 40px;
 }
+
+.donation-guides .advise {
+  font-weight: bold;
+  text-align: center;
+}
+
+.accordion {
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.guide-title {
+  background-color: var(--color-bg-gray);
+  font-size: 18px;
+  padding: 20px 30px;
+}
+
+.sberbank .guide-title {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.accordion .block-body {
+
+}
+
+.accordion .block-body img {
+  display: block;
+  float: none;
+  margin-top: 20px;
+}
+
+.accordion .block-body li {
+  margin-bottom: 30px;
+}
+.accordion .block-body li:last-child {
+  margin-bottom: 0;
+}

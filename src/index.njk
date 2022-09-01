@@ -240,24 +240,24 @@ permalink: /index.html
               </div>
             </div>
           </div>
-          <div class="donation-instructions">
+          <div class="donation-guides">
             <h2>Как осуществить пожертвование на избирательный счёт?</h2>
-            <strong>
+            <div class="advise">
               Одно физическое лицо не может перевести суммарно более 10 000 ₽.
-            </strong>
+            </div>
           </div>
           <div class="accordion">
             <div class="sberbank">
-              <span>Для физических лиц — пользователей «Сбербанк Онлайн»</span>
-              <div>
+              <div class="guide-title">Для физических лиц — пользователей «Сбербанк Онлайн»</div>
+              <div class="block-body">
                 {% markdown %}
                   {%- include "./content/support/sber/guide.md" -%}
                 {% endmarkdown %}
               </div>
             </div>
             <div class="generic-bank">
-              <span>Для физических лиц — пользователей других банков</span>
-              <div>
+              <div class="guide-title">Для физических лиц — пользователей других банков</div>
+              <div class="block-body">
                 {% markdown %}
                   {%- include "./content/support/generic/first.md" -%}
                 {% endmarkdown %}
