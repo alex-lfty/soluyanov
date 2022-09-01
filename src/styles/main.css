@@ -430,6 +430,7 @@ section#support .desc div:last-child {
 
 .guide-title {
   background-color: var(--color-bg-gray);
+  cursor: pointer;
   font-size: 18px;
   padding: 20px 30px;
 }
@@ -439,19 +440,24 @@ section#support .desc div:last-child {
   color: white;
 }
 
-.accordion .block-body {
-
+.accordion .guide-body {
+ overflow: hidden;
+ transition: height 0.5s;
 }
 
-.accordion .block-body img {
+.accordion .guide-body img {
   display: block;
   float: none;
   margin-top: 20px;
 }
 
-.accordion .block-body li {
+.accordion .guide-body li {
   margin-bottom: 30px;
 }
-.accordion .block-body li:last-child {
+.accordion .guide-body li:last-child {
   margin-bottom: 0;
+}
+.bank-props {
+  background-color: var(--color-bg-gray);
+  padding: 50px 30px;
 }

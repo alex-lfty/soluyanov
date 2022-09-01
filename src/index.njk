@@ -123,9 +123,8 @@ permalink: /index.html
             <div class="team-member">
               <img src="./img/sherbitskaya.jpg" alt="Ольга Щербицкая фото" />
               <div>
-                {% markdown %}
-                  {%- include "./content/team/olga.md" -%}
-                {% endmarkdown %}
+                {% markdown %} {%- include "./content/team/olga.md" -%} {%
+                endmarkdown %}
               </div>
             </div>
             <div class="team-member">
@@ -234,9 +233,8 @@ permalink: /index.html
             </div>
             <div>
               <div class="donation-advise">
-                {% markdown %}
-                  {%- include "./content/support/advise.md" -%}
-                {% endmarkdown %}
+                {% markdown %} {%- include "./content/support/advise.md" -%} {%
+                endmarkdown %}
               </div>
             </div>
           </div>
@@ -248,29 +246,29 @@ permalink: /index.html
           </div>
           <div class="accordion">
             <div class="sberbank">
-              <div class="guide-title">Для физических лиц — пользователей «Сбербанк Онлайн»</div>
-              <div class="block-body">
-                {% markdown %}
-                  {%- include "./content/support/sber/guide.md" -%}
+              <div class="guide-title">
+                Для физических лиц — пользователей «Сбербанк Онлайн»
+              </div>
+              <div class="guide-body">
+                {% markdown %} {%- include "./content/support/sber/guide.md" -%}
                 {% endmarkdown %}
               </div>
             </div>
             <div class="generic-bank">
-              <div class="guide-title">Для физических лиц — пользователей других банков</div>
-              <div class="block-body">
-                {% markdown %}
-                  {%- include "./content/support/generic/first.md" -%}
-                {% endmarkdown %}
+              <div class="guide-title">
+                Для физических лиц — пользователей других банков
               </div>
-              <div>
-                {% markdown %}
-                  {%- include "./content/support/generic/props.md" -%}
-                {% endmarkdown %}
-              </div>
-              <div>
-                {% markdown %}
-                  {%- include "./content/support/generic/last.md" -%}
-                {% endmarkdown %}
+              <div class="guide-body">
+                {% markdown %} {%- include "./content/support/generic/first.md"
+                -%} {% endmarkdown %}
+                <div class="bank-props">
+                  {% markdown %} {%- include
+                  "./content/support/generic/props.md" -%} {% endmarkdown %}
+                </div>
+                <div>
+                  {% markdown %} {%- include "./content/support/generic/last.md"
+                  -%} {% endmarkdown %}
+                </div>
               </div>
             </div>
           </div>
@@ -279,7 +277,39 @@ permalink: /index.html
     </main>
     <footer></footer>
     <script>
-      new Glide(".glide").mount();
+      window.onload = function() {
+        new Glide(".glide").mount();
+        const sberBlock = {
+          opened: false,
+          header: document.querySelector(".sberbank .guide-title"),
+          body: document.querySelector(".sberbank .guide-body"),
+          height: 0
+        };
+        sberBlock.height = sberBlock.body.getBoundingClientRect().height
+        sberBlock.body.style.height = 0;
+        sberBlock.header.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          sberBlock.opened = !sberBlock.opened;
+          sberBlock.body.style.height = sberBlock.opened ? sberBlock.height + "px" : "0";
+        });
+        const genericBankBlock = {
+          opened: false,
+          header: document.querySelector(".generic-bank .guide-title"),
+          body: document.querySelector(".generic-bank .guide-body"),
+          height: 0
+        };
+        genericBankBlock.height = genericBankBlock.body.getBoundingClientRect().height
+        genericBankBlock.body.style.height = 0;
+        genericBankBlock.header.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          genericBankBlock.opened = !genericBankBlock.opened;
+          genericBankBlock.body.style.height = genericBankBlock.opened
+            ? genericBankBlock.height + "px"
+            : 0;
+        });
+    }
     </script>
   </body>
 </html>

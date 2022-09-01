@@ -356,8 +356,10 @@
           </div>
           <div class="accordion">
             <div class="sberbank">
-              <div class="guide-title">Для физических лиц — пользователей «Сбербанк Онлайн»</div>
-              <div class="block-body">
+              <div class="guide-title">
+                Для физических лиц — пользователей «Сбербанк Онлайн»
+              </div>
+              <div class="guide-body">
                 <ol>
 <li>В разделе «Главный» введите в поиске «Солуянов Глеб Владимирович», выберите выданный поиском вариант.
 <img src="./img/sber/step1.jpg" alt="Шаг 1"></li>
@@ -383,13 +385,14 @@
               </div>
             </div>
             <div class="generic-bank">
-              <div class="guide-title">Для физических лиц — пользователей других банков</div>
-              <div class="block-body">
+              <div class="guide-title">
+                Для физических лиц — пользователей других банков
+              </div>
+              <div class="guide-body">
                 <p>Если вы не пользуетесь Сбербанком, то можете сделать банковский перевод по реквизитам избирательного счёта Глеба Солуянова в любом онлайн-банке или банковском отделении, не открывая счёт.</p>
 
-              </div>
-              <div>
-                <p>Получатель: <strong>Солуянов Глеб Владимирович</strong>
+                <div class="bank-props">
+                  <p>Получатель: <strong>Солуянов Глеб Владимирович</strong>
 Номер счёта: <strong>40810810038009417144</strong>
 БИК: <strong>044525225</strong>
 Корр. Счет: <strong>30101810400000000225</strong>
@@ -402,16 +405,19 @@
 28.04.1985 г.р., г.Москва, ул. Первомайская, д. 73, кв. 55,
 Паспорт: 45 53 088829, Г: RUS</p>
 
-              </div>
-              <div>
-                <p>В строке «Назначение платежа» обязательно должны присутствовать:</p>
-<p>Указание на добровольность пожертвования
-Паспортные данные: ФИО, гражданство, дата рождения, серия и номер паспорта
-Адрес регистрации
-В некоторых банках дополнительно требуется указать, что платёж не облагается НДС (прописать «НДС не облагается»/«Без НДС»)</p>
+                </div>
+                <div>
+                  <p>В строке «Назначение платежа» обязательно должны присутствовать:</p>
+<ul>
+<li>Указание на добровольность пожертвования</li>
+<li>Паспортные данные: ФИО, гражданство, дата рождения, серия и номер паспорта</li>
+<li>Адрес регистрации</li>
+<li>В некоторых банках дополнительно требуется указать, что платёж не облагается НДС (прописать «НДС не облагается»/«Без НДС»)</li>
+</ul>
 <p>В графу «Назначение платежа» можно вписать не более 180 символов, поэтому вам придётся сокращать. Однако следите, чтобы никакая информация не потерялась, иначе платёж будет признан анонимным и я буду вынужден, в соответствии
 с законом, <strong>перевести его в бюджет</strong>.</p>
 
+                </div>
               </div>
             </div>
           </div>
@@ -420,7 +426,39 @@
     </main>
     <footer></footer>
     <script>
-      new Glide(".glide").mount();
+      window.onload = function() {
+        new Glide(".glide").mount();
+        const sberBlock = {
+          opened: false,
+          header: document.querySelector(".sberbank .guide-title"),
+          body: document.querySelector(".sberbank .guide-body"),
+          height: 0
+        };
+        sberBlock.height = sberBlock.body.getBoundingClientRect().height
+        sberBlock.body.style.height = 0;
+        sberBlock.header.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          sberBlock.opened = !sberBlock.opened;
+          sberBlock.body.style.height = sberBlock.opened ? sberBlock.height + "px" : "0";
+        });
+        const genericBankBlock = {
+          opened: false,
+          header: document.querySelector(".generic-bank .guide-title"),
+          body: document.querySelector(".generic-bank .guide-body"),
+          height: 0
+        };
+        genericBankBlock.height = genericBankBlock.body.getBoundingClientRect().height
+        genericBankBlock.body.style.height = 0;
+        genericBankBlock.header.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          genericBankBlock.opened = !genericBankBlock.opened;
+          genericBankBlock.body.style.height = genericBankBlock.opened
+            ? genericBankBlock.height + "px"
+            : 0;
+        });
+    }
     </script>
   </body>
 </html>
