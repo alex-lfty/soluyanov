@@ -245,6 +245,8 @@ permalink: /index.html
             <div class="sberbank">
               <div class="guide-title">
                 Для физических лиц — пользователей «Сбербанк Онлайн»
+                <img class="arrow arrow-down" src="./img/arrow-down.svg" alt="стрелка открытия">
+                <img class="arrow arrow-up hidden" src="./img/arrow-up.svg" alt="стрелка закрытия">
               </div>
               <div class="guide-body">
                 {% markdown %} {%- include "./content/support/sber/guide.md" -%}
@@ -254,6 +256,9 @@ permalink: /index.html
             <div class="generic-bank">
               <div class="guide-title">
                 Для физических лиц — пользователей других банков
+                <img class="arrow arrow-down" src="./img/arrow-down-black.svg" alt="стрелка открытия">
+                <img class="arrow arrow-up hidden" src="./img/arrow-up-black.svg" alt="стрелка закрытия">
+
               </div>
               <div class="guide-body">
                 {% markdown %} {%- include "./content/support/generic/first.md"
@@ -279,15 +284,25 @@ permalink: /index.html
         const sberBlock = {
           opened: false,
           header: document.querySelector(".sberbank .guide-title"),
+          arrowUp:  document.querySelector(".sberbank .guide-title .arrow-up"),
+          arrowDown:  document.querySelector(".sberbank .guide-title .arrow-down"),
           body: document.querySelector(".sberbank .guide-body"),
           height: 0,
         };
         sberBlock.height = sberBlock.body.getBoundingClientRect().height;
         sberBlock.body.style.height = 0;
+
         sberBlock.header.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
           sberBlock.opened = !sberBlock.opened;
+          if (sberBlock.opened) {
+            sberBlock.arrowDown.classList.add("hidden");
+            sberBlock.arrowUp.classList.remove("hidden");
+          } else {
+            sberBlock.arrowUp.classList.add("hidden");
+            sberBlock.arrowDown.classList.remove("hidden");
+          }
           sberBlock.body.style.height = sberBlock.opened
             ? sberBlock.height + "px"
             : "0";
@@ -296,16 +311,26 @@ permalink: /index.html
         const genericBankBlock = {
           opened: false,
           header: document.querySelector(".generic-bank .guide-title"),
+          arrowUp:  document.querySelector(".generic-bank .guide-title .arrow-up"),
+          arrowDown:  document.querySelector(".generic-bank .guide-title .arrow-down"),
           body: document.querySelector(".generic-bank .guide-body"),
           height: 0,
         };
         genericBankBlock.height =
           genericBankBlock.body.getBoundingClientRect().height;
         genericBankBlock.body.style.height = 0;
+
         genericBankBlock.header.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
           genericBankBlock.opened = !genericBankBlock.opened;
+          if (genericBankBlock.opened) {
+            genericBankBlock.arrowDown.classList.add("hidden");
+            genericBankBlock.arrowUp.classList.remove("hidden");
+          } else {
+            genericBankBlock.arrowUp.classList.add("hidden");
+            genericBankBlock.arrowDown.classList.remove("hidden");
+          }
           genericBankBlock.body.style.height = genericBankBlock.opened
             ? genericBankBlock.height + "px"
             : 0;

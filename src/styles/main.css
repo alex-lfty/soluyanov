@@ -9,6 +9,10 @@ header {
   max-width: var(--width-content);
   margin: 0 auto;
 }
+
+.hidden {
+  display: none;
+}
 /*header menu {
 
 }
@@ -417,14 +421,23 @@ section#support .desc div:last-child {
 
 .guide-title {
   background-color: var(--color-bg-gray);
+  display: flex;
   cursor: pointer;
   font-size: 18px;
   padding: 20px 30px;
 }
 
+.guide-title .arrow {
+  margin-left: auto;
+}
+
 .sberbank .guide-title {
   background-color: var(--color-accent);
   color: white;
+}
+
+.generic-bank .guide-title .arrow {
+  color: var(--color-text);
 }
 
 .accordion .guide-body {
