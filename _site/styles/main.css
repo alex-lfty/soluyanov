@@ -220,6 +220,7 @@ section#team .team-member div {
   display: flex;
   align-items: center;
   font-size: 24px;
+  margin-bottom: 2em;
   text-transform: uppercase;
   line-height: 51px;
 }
