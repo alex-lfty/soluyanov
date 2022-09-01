@@ -13,6 +13,11 @@ header {
 .hidden {
   display: none;
 }
+
+button {
+  border-color: var(--color);
+  background-color: var(--color);
+}
 /*header menu {
 
 }
@@ -201,6 +206,7 @@ section#team .team-member div {
   font-size: 24px;
   margin: 0 0 15px;
 }
+
 .join-team {
   margin-top: 80px;
 }
@@ -209,6 +215,24 @@ section#team .team-member div {
 }
 .join-team p:first-child {
   margin-top: 0;
+}
+.join-team button {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 51px;
+}
+.join-team button img {
+  margin-right: 1em;
+}
+.join-team button.volunteer img {
+  height: 45px;
+  width: 36px;
+}
+.join-team button.observe img {
+  height: 35px;
+  width: 51px;
 }
 
 section#support .desc div:last-child {
