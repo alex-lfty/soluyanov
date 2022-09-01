@@ -11,7 +11,7 @@ module.exports = {
   },
   fundrise: {
     target: {
-      value: 70000,
+      value: 75000,
       toString() {
         return this.value;
       },
@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     current: {
-      value: 25549,
+      value: 51390,
       toString() {
         return this.value;
       },
