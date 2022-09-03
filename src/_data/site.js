@@ -7,7 +7,7 @@ module.exports = {
   programSlides: [1, 2, 3, 4, 5, 6],
   social: {
     telegram: "https://t.me/soluyanovgleb",
-    vk: ""
+    vk: "https://vk.com/vladclot"
   },
   fundrise: {
     target: {
