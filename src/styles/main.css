@@ -20,7 +20,7 @@ button {
 }
 header menu ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0;
   font-weight: medium;
 }
