@@ -35,6 +35,10 @@
     <header class="site-header">
       <menu class="site-menu">
   <div class="container">
+    <div class="site-menu-overlay"></div>
+    <div class="hamburger-menu close">
+      <span class="hamburger-menu-bars"></span>
+    </div>
     <ul>
       <li><a href="#">Обо мне</a></li>
       <li><a href="#program">Программа</a></li>
@@ -489,6 +493,34 @@
             ? genericBankBlock.height + "px"
             : 0;
         });
+
+        document.querySelector(".site-menu-overlay").addEventListener("click", e => {
+          e.stopPropagation();
+          e.preventDefault();
+          siteMenu.classList.remove("open");
+          hamburger.classList.remove("active");
+        })
+
+        const hamburger = document.querySelector(".hamburger-menu");
+        const siteMenu = document.querySelector(".site-menu");
+        document.querySelector(".site-menu ul").addEventListener("click", e => {
+          if (e.target.tagName.toLowerCase() === "a") {
+            if (siteMenu.classList.contains("open")) {
+              siteMenu.classList.remove("open");
+              hamburger.classList.remove("active");
+            }
+          }
+        })
+        hamburger.addEventListener("click", e => {
+          if (hamburger.classList.contains("active")) {
+            hamburger.classList.remove("active");
+            siteMenu.classList.remove("open")
+          } else {
+            hamburger.classList.add("active");
+            siteMenu.classList.add("open")
+          }
+          e.stopPropagation()
+        })
       };
     </script>
   </body>
