@@ -681,6 +681,11 @@ section#about .content .wrapper {
   color: var(--color-text);
 }
 
+.generic-bank .guide-body {
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
+}
+
 .accordion .guide-body {
   overflow: hidden;
   transition: height 0.5s;
