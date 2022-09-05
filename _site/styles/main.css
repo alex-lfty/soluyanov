@@ -10,11 +10,28 @@ header {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 700px) {
+  .mobile-padding {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .content {
   box-sizing: border-box;
   max-width: var(--width-content);
   width: 100%;
   margin: 0 auto;
+}
+.content h2 {
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+.content h3 {
+  font-size: 28px;
+  font-weight: normal;
 }
 
 @media only screen and (min-width: 701px) {
@@ -27,6 +44,10 @@ header {
   .content {
     padding-left: 0;
     padding-right: 0;
+  }
+  .content h2 {
+    text-align: left;
+    /*padding: 0 20px;*/
   }
 }
 
@@ -226,7 +247,7 @@ menu.site-menu .site-menu-overlay {
   #lead {
     grid-template-rows: auto auto auto;
     grid-template-columns: auto;
-    padding: 0 30px 50px;
+    padding: 0 20px 50px;
   }
   #lead .photo {
     grid-row: 2 / 2;
@@ -279,17 +300,6 @@ main {
   width: 100%;
 }
 
-.content h2 {
-  font-size: 32px;
-  font-weight: 500;
-  text-align: center;
-  text-transform: uppercase;
-}
-.content h3 {
-  font-size: 28px;
-  font-weight: normal;
-}
-
 .two-columns {
   display: flex;
   flex-direction: row;
@@ -314,16 +324,20 @@ section#about .content {
   background-color: var(--color-bg-secondary);
   padding: 100px 1em;
 }
+@media only screen and (max-width: 700px) {
+  section#about .content {
+    padding: 2em var(--padding-mobile);
+  }
+}
 section#about .content .wrapper {
   max-width: 700px;
   margin: 0 auto;
 }
 
-section#team .team-intro {
+.team-intro {
   text-align: center;
   margin: 50px 0;
 }
-
 .team-member {
   display: flex;
 }
@@ -332,13 +346,30 @@ section#team .team-intro {
   width: 164px;
   margin-right: 1em;
 }
-section#team .team-member div {
+.team-member div {
   flex-shrink: 1;
 }
 .team-member h3 {
   font-weight: bold;
   font-size: 24px;
   margin: 0 0 15px;
+}
+@media only screen and (max-width: 700px) {
+  .team-intro {
+    text-align: left;
+    padding: 20px;
+    margin: 30px 0 0;
+  }
+
+  .team-members .team-member {
+    box-sizing: border-box;
+    padding: var(--padding-mobile);
+    flex-direction: column;
+    margin: 0;
+  }
+  .team-member h3 {
+    margin: 15px 0;
+  }
 }
 
 .join-team {
@@ -350,57 +381,43 @@ section#team .team-member div {
 .join-team p:first-child {
   margin-top: 0;
 }
-.join-team button {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  margin-bottom: 2em;
-  text-transform: uppercase;
-  line-height: 51px;
-}
-.join-team button:last-child {
-  margin-bottom: 0;
-}
-.join-team button img {
-  margin-right: 1em;
-}
-.join-team button.volunteer img {
-  height: 45px;
-  width: 36px;
-}
-.join-team button.observe img {
-  height: 35px;
-  width: 51px;
-}
 
-section#support .desc div {
+.desc div {
   box-sizing: border-box;
 }
 
-section#support .desc div:last-child {
+.desc div:last-child {
   background-color: var(--color-bg-secondary);
   padding: 30px 50px;
 }
 
+@media only screen and (max-width: 700px) {
+  #support .content h2 {
+    margin-bottom: 0;
+    padding-left: var(--padding-mobile);
+    padding-right: var(--padding-mobile);
+  }
+}
 @media only screen and (max-width: 960px) {
-  section#support .desc {
+  .desc {
     flex-direction: column;
   }
-  section#support .desc > div {
+  .desc > div {
     width: 100%;
   }
 }
 @media only screen and (min-width: 961px) {
-  section#support .desc {
+  .desc {
     flex-direction: row;
   }
 
-  section#support .desc div {
+  .desc div {
     width: 49%;
   }
 }
 @media only screen and (max-width: 700px) {
-  section#support .desc div, section#support .desc div:last-child {
+  .desc div,
+  .desc div:last-child {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -412,6 +429,11 @@ section#support .desc div:last-child {
   margin-top: 0;
 }
 
+@media only screen and (max-width: 700px) {
+  #program h2 {
+    padding: var(--padding-mobile);
+  }
+}
 .glide__slide {
   padding-bottom: 1em;
   z-index: 1;
@@ -435,18 +457,6 @@ section#support .desc div:last-child {
   justify-content: center;
   z-index: 1;
 }
-@media only screen and (max-width: 700px) {
-  .glide__slide > div {
-    flex-direction: column;
-  }
-  .glide__slide img {
-    margin: 0 auto 1em;
-  }
-
-  .glide__slide .slide-body {
-    padding: 0 20px;
-  }
-}
 .glide__bullet {
   background-color: #d9d9d9;
   border: 0;
@@ -468,13 +478,28 @@ section#support .desc div:last-child {
 
   .glide__slide div {
     margin: 0;
+    padding: 0 var(--padding-mobile);
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 700px) {
+  .glide__slide > div {
+    flex-direction: column;
+    padding: 0;
+  }
+  .glide__slide img {
+    margin: 0 auto 1em;
+  }
+
+  .glide__slide .slide-body {
+    padding: 0 20px;
+  }
+}
+
 @media only screen and (min-width: 961px) {
-  .glide__slide div {
+  .glide__slide > div {
     width: calc(100% - 200px);
-    /*margin: 0 100px;*/
   }
   .glide__arrows {
     display: flex;
@@ -502,6 +527,15 @@ section#support .desc div:last-child {
   color: white;
   margin: 70px 0;
   padding: 40px 50px;
+}
+@media only screen and (max-width: 700px) {
+  .fundrise-target {
+    margin: 30px 0;
+    padding: 40px var(--padding-mobile);
+  }
+  #support .content .fundrise-target h2 {
+    padding: 0;
+  }
 }
 
 .fundrise-target .newspaper-progress {
@@ -564,6 +598,12 @@ section#support .desc div:last-child {
   font-size: 28px;
   margin: 20px 0;
 }
+@media only screen and (max-width: 700px) {
+  .fundrise-what > div {
+    padding-left: var(--padding-mobile);
+    padding-right: var(--padding-mobile);
+  }
+}
 
 .fundrise-who {
   border: 4px solid var(--color);
@@ -595,14 +635,11 @@ section#support .desc div:last-child {
     padding: 1em 20px;
     border-left: 0;
     border-right: 0;
-    /*margin: 0 -20px;*/
   }
 
   .fundrise-who .donation-advise {
     margin: 0 -20px;
-/*    padding-left: 20px;
-    padding-right: 20px;
-*/  }
+  }
 }
 
 .donation-guides .advise {
@@ -610,6 +647,14 @@ section#support .desc div:last-child {
   text-align: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .donation-guides .advise {
+    text-align: left;
+    padding-left: var(--padding-mobile);
+    padding-right: var(--padding-mobile);
+    margin-top: 10px;
+  }
+}
 .accordion {
   max-width: 700px;
   margin: 40px auto;
