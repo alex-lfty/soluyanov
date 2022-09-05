@@ -705,7 +705,14 @@ section#about .content .wrapper {
 
 footer {
   background-color: var(--color);
+  color: white;
+  font-size: 0.8em;
+  line-height: 1.5em;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
+}
+footer a {
+  color: white;
+  text-decoration: underline;
 }
