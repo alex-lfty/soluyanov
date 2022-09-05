@@ -10,6 +10,26 @@ header {
   margin: 0 auto;
 }
 
+.content {
+  box-sizing: border-box;
+  max-width: var(--width-content);
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 701px) {
+  .content {
+    padding: 0 1em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -259,13 +279,6 @@ main {
   width: 100%;
 }
 
-.content {
-  box-sizing: border-box;
-  max-width: var(--width-content);
-  width: 100%;
-  padding: 2em 1em;
-  margin: 0 auto;
-}
 .content h2 {
   font-size: 32px;
   font-weight: 500;
@@ -360,9 +373,12 @@ section#team .team-member div {
   width: 51px;
 }
 
+section#support .desc div {
+  box-sizing: border-box;
+}
+
 section#support .desc div:last-child {
   background-color: var(--color-bg-secondary);
-  box-sizing: border-box;
   padding: 30px 50px;
 }
 
@@ -383,16 +399,20 @@ section#support .desc div:last-child {
     width: 49%;
   }
 }
+@media only screen and (max-width: 700px) {
+  section#support .desc div, section#support .desc div:last-child {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 #program .content {
-  padding-bottom: 0;
-  padding-top: 0;
+  padding: 0;
 }
 #program h3 {
   margin-top: 0;
 }
 
 .glide__slide {
-  /*padding: 1em 0;*/
   padding-bottom: 1em;
   z-index: 1;
 }
@@ -414,6 +434,18 @@ section#support .desc div:last-child {
   display: flex;
   justify-content: center;
   z-index: 1;
+}
+@media only screen and (max-width: 700px) {
+  .glide__slide > div {
+    flex-direction: column;
+  }
+  .glide__slide img {
+    margin: 0 auto 1em;
+  }
+
+  .glide__slide .slide-body {
+    padding: 0 20px;
+  }
 }
 .glide__bullet {
   background-color: #d9d9d9;
@@ -558,6 +590,21 @@ section#support .desc div:last-child {
   padding: 40px;
 }
 
+@media only screen and (max-width: 700px) {
+  .fundrise-who {
+    padding: 1em 20px;
+    border-left: 0;
+    border-right: 0;
+    /*margin: 0 -20px;*/
+  }
+
+  .fundrise-who .donation-advise {
+    margin: 0 -20px;
+/*    padding-left: 20px;
+    padding-right: 20px;
+*/  }
+}
+
 .donation-guides .advise {
   font-weight: bold;
   text-align: center;
@@ -613,6 +660,7 @@ section#support .desc div:last-child {
 
 footer {
   background-color: var(--color);
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
 }
