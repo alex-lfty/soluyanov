@@ -30,6 +30,12 @@
     --width-card-wide: 800px;
     --width-content: 1240px;
     --padding-mobile: 20px;
+
+    /* ### Algolia autocomplete component ### */
+    --aa-search-input-height: 30px;
+    --aa-base-unit: 16;
+    --aa-font-size: 24px;
+    --aa-primary-color-rgb: 113,190,234;
 }
 
 /*@media (prefers-color-scheme: dark) {

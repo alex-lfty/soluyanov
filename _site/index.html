@@ -5,6 +5,11 @@
     <meta charset="utf-8" />
     <meta name="description" content="Кандидат в муниципальные депутаты Москвы по району Измайлово Глеб Солуянов" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./lib/glide.core.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"
+    />
     
     <link rel="stylesheet" type="text/css" href="./styles/fonts.css" />
     
@@ -27,7 +32,6 @@
     <meta name="twitter:title" content="Глеб Солуянов" />
     <meta name="twitter:description" content="Кандидат в муниципальные депутаты Москвы по району Измайлово Глеб Солуянов" />
     
-    <link rel="stylesheet" href="./lib/glide.core.min.css" />
     
   </head>
   <body>
@@ -93,10 +97,10 @@
       <section id="search">
         <div class="content">
           <h2>Найдите свой избирательный участок</h2>
-          <input type="text" class="address-search-input" />
-          <div class="search-results-wrapper">
-            <div class="search-results"></div>
-          </div>
+          <div id="search-autocomplete"></div>
+
+            <div class="found-station"></div>
+          
         </div>
       </section>
       <section id="program">
@@ -475,6 +479,8 @@
     </footer>
     <script src="./lib/glide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
+
     <script>
       // window.onload = function () {
       new Glide(".glide").mount();

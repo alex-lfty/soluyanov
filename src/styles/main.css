@@ -333,7 +333,13 @@ section#about .content .wrapper {
   max-width: 700px;
   margin: 0 auto;
 }
+#search {
+  position: relative;
+}
 
+#search .search-autocomplete {
+  --aa-search-input-height: 30px;
+}
 .team-intro {
   text-align: center;
   margin: 50px 0;
@@ -721,3 +727,4 @@ footer a {
   color: white;
   text-decoration: underline;
 }
+

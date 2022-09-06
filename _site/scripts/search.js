@@ -1,17 +1,13 @@
-const render = results => `<ul>
-  ${results.map(address => `<li>${address}</li>`).join("")}
-</ul>`
-
 window.addEventListener("load", () => {
+  const { autocomplete } = window["@algolia/autocomplete-js"];
+
+  const foundEl = document.querySelector("#search .found-station")
+
   Promise.all([
     fetch("../addresses.json").then((res) => res.json()),
     fetch("../stations.json").then((res) => res.json()),
   ]).then((results) => {
-    console.log(results);
     const [buildings, stations] = results;
-    const inputEl = document.querySelector("#search .address-search-input");
-    const resultsEl = document.querySelector("#search .search-results")
-    let foundAddresses = [];
     const options = {
       isCaseSensitive: false,
       includeScore: true,
@@ -31,19 +27,38 @@ window.addEventListener("load", () => {
 
     const fuse = new Fuse(buildings.addresses, options);
 
-    inputEl.addEventListener("input", (e) => {
-      e.stopPropagation();
-      console.log(inputEl.value);
-      const searchString = inputEl.value;
-      if (searchString.length > 2) {
-        foundAddresses = fuse.search(searchString).slice(0, 10).map(({ item }) => item.address)
-        console.log(foundAddresses);
-        resultsEl.innerHTML = render(foundAddresses)
-      }
-      if (searchString.length === 0) {
-        foundAddresses = []
-        resultsEl.innerHTML = render(foundAddresses)
-      }
+    autocomplete({
+      container: "#search-autocomplete",
+      placeholder: "Введите адрес",
+      getSources() {
+        return [
+          {
+            sourceId: "addresses",
+            getItems({ query }) {
+              return fuse
+                .search(query)
+                .slice(0, 10)
+                .map(({ item }) => item);
+            },
+            templates: {
+              item({ item }) {
+                return item.address;
+              },
+            },
+            onSelect(params) {
+              console.log("ON SELECT!", params)
+              const station = stations[params.item.station]
+              foundEl.innerHTML = `<div>
+                <h3>${station.name}</h3>
+                <div>${station.address}</div>
+              </div>`
+            },
+            onActice() {
+              console.log("ON ACTIVE!")
+            }
+          },
+        ];
+      },
     });
   });
 });
