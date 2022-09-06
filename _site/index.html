@@ -85,6 +85,7 @@
           <h2>Найдите свой избирательный участок</h2>
           <div id="search-autocomplete"></div>
           <div class="found-station"></div>
+          <div id="map" style="width: 100%; height: 400px"></div>
         </div>
       </section>
       <section id="about">
@@ -478,6 +479,7 @@
     <script src="./lib/glide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?7802f198-05ec-4025-9eba-662d32d3a6f2&lang=ru_RU" type="text/javascript"> </script>
 
     <script>
       // window.onload = function () {
@@ -570,6 +572,7 @@
       });
       // };
     </script>
+    <script src="./scripts/map.js"></script>
     <script src="./scripts/search.js"></script>
   </body>
 </html>
