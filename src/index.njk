@@ -35,7 +35,6 @@ permalink: /index.html
     <meta name="twitter:image" content="{{ site.baseUrl }}/img/card.jpg" />
     #}
     <link rel="stylesheet" href="./lib/glide.core.min.css" />
-    <script src="./lib/glide.min.js"></script>
     {# {% block css_inject %}{% endblock %} #}
   </head>
   <body>
@@ -51,8 +50,15 @@ permalink: /index.html
         </div>
         <div class="intro-text">
           {% markdown %} {%- include "./content/lead.md" -%} {% endmarkdown %}
-          <a class="social-link" href="{{ site.social.telegram }}" target="_blank">Telegram</a>
-          <a class="social-link" href="{{ site.social.vk }}" target="_blank">ВКонтакте</a>
+          <a
+            class="social-link"
+            href="{{ site.social.telegram }}"
+            target="_blank"
+            >Telegram</a
+          >
+          <a class="social-link" href="{{ site.social.vk }}" target="_blank"
+            >ВКонтакте</a
+          >
         </div>
       </div>
     </header>
@@ -61,6 +67,15 @@ permalink: /index.html
         <div class="content">
           <div class="wrapper">
             {% markdown %} {%- include "./content/bio.md" -%} {% endmarkdown %}
+          </div>
+        </div>
+      </section>
+      <section id="search">
+        <div class="content">
+          <h2>Найдите свой избирательный участок</h2>
+          <input type="text" class="address-search-input" />
+          <div class="search-results-wrapper">
+            <div class="search-results"></div>
           </div>
         </div>
       </section>
@@ -232,8 +247,16 @@ permalink: /index.html
             <div class="sberbank">
               <div class="guide-title">
                 Для физических лиц — пользователей «Сбербанк Онлайн»
-                <img class="arrow arrow-down" src="./img/arrow-down.svg" alt="стрелка открытия">
-                <img class="arrow arrow-up hidden" src="./img/arrow-up.svg" alt="стрелка закрытия">
+                <img
+                  class="arrow arrow-down"
+                  src="./img/arrow-down.svg"
+                  alt="стрелка открытия"
+                />
+                <img
+                  class="arrow arrow-up hidden"
+                  src="./img/arrow-up.svg"
+                  alt="стрелка закрытия"
+                />
               </div>
               <div class="guide-body">
                 {% markdown %} {%- include "./content/support/sber/guide.md" -%}
@@ -243,9 +266,16 @@ permalink: /index.html
             <div class="generic-bank">
               <div class="guide-title">
                 Для физических лиц — пользователей других банков
-                <img class="arrow arrow-down" src="./img/arrow-down-black.svg" alt="стрелка открытия">
-                <img class="arrow arrow-up hidden" src="./img/arrow-up-black.svg" alt="стрелка закрытия">
-
+                <img
+                  class="arrow arrow-down"
+                  src="./img/arrow-down-black.svg"
+                  alt="стрелка открытия"
+                />
+                <img
+                  class="arrow arrow-up hidden"
+                  src="./img/arrow-up-black.svg"
+                  alt="стрелка закрытия"
+                />
               </div>
               <div class="guide-body">
                 {% markdown %} {%- include "./content/support/generic/first.md"
@@ -266,95 +296,105 @@ permalink: /index.html
     </main>
     <footer>
       <div class="content">
-        Сайт создан безвозмездно и по собственной инициативе активистами <a href="https://anticapitalist.ru">Российского социалистического движения</a>
+        Сайт создан безвозмездно и по собственной инициативе активистами
+        <a href="https://anticapitalist.ru"
+          >Российского социалистического движения</a
+        >
       </div>
     </footer>
+    <script src="./lib/glide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script>
-      window.onload = function () {
-        new Glide(".glide").mount();
-        const sberBlock = {
-          opened: false,
-          header: document.querySelector(".sberbank .guide-title"),
-          arrowUp:  document.querySelector(".sberbank .guide-title .arrow-up"),
-          arrowDown:  document.querySelector(".sberbank .guide-title .arrow-down"),
-          body: document.querySelector(".sberbank .guide-body"),
-          height: 0,
-        };
-        sberBlock.height = sberBlock.body.getBoundingClientRect().height;
-        sberBlock.body.style.height = 0;
+      // window.onload = function () {
+      new Glide(".glide").mount();
+      const sberBlock = {
+        opened: false,
+        header: document.querySelector(".sberbank .guide-title"),
+        arrowUp: document.querySelector(".sberbank .guide-title .arrow-up"),
+        arrowDown: document.querySelector(".sberbank .guide-title .arrow-down"),
+        body: document.querySelector(".sberbank .guide-body"),
+        height: 0,
+      };
+      sberBlock.height = sberBlock.body.getBoundingClientRect().height;
+      sberBlock.body.style.height = 0;
 
-        sberBlock.header.addEventListener("click", (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          sberBlock.opened = !sberBlock.opened;
-          if (sberBlock.opened) {
-            sberBlock.arrowDown.classList.add("hidden");
-            sberBlock.arrowUp.classList.remove("hidden");
-          } else {
-            sberBlock.arrowUp.classList.add("hidden");
-            sberBlock.arrowDown.classList.remove("hidden");
-          }
-          sberBlock.body.style.height = sberBlock.opened
-            ? sberBlock.height + "px"
-            : "0";
-        });
+      sberBlock.header.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        sberBlock.opened = !sberBlock.opened;
+        if (sberBlock.opened) {
+          sberBlock.arrowDown.classList.add("hidden");
+          sberBlock.arrowUp.classList.remove("hidden");
+        } else {
+          sberBlock.arrowUp.classList.add("hidden");
+          sberBlock.arrowDown.classList.remove("hidden");
+        }
+        sberBlock.body.style.height = sberBlock.opened
+          ? sberBlock.height + "px"
+          : "0";
+      });
 
-        const genericBankBlock = {
-          opened: false,
-          header: document.querySelector(".generic-bank .guide-title"),
-          arrowUp:  document.querySelector(".generic-bank .guide-title .arrow-up"),
-          arrowDown:  document.querySelector(".generic-bank .guide-title .arrow-down"),
-          body: document.querySelector(".generic-bank .guide-body"),
-          height: 0,
-        };
-        genericBankBlock.height =
-          genericBankBlock.body.getBoundingClientRect().height;
-        genericBankBlock.body.style.height = 0;
+      const genericBankBlock = {
+        opened: false,
+        header: document.querySelector(".generic-bank .guide-title"),
+        arrowUp: document.querySelector(".generic-bank .guide-title .arrow-up"),
+        arrowDown: document.querySelector(
+          ".generic-bank .guide-title .arrow-down"
+        ),
+        body: document.querySelector(".generic-bank .guide-body"),
+        height: 0,
+      };
+      genericBankBlock.height =
+        genericBankBlock.body.getBoundingClientRect().height;
+      genericBankBlock.body.style.height = 0;
 
-        genericBankBlock.header.addEventListener("click", (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          genericBankBlock.opened = !genericBankBlock.opened;
-          if (genericBankBlock.opened) {
-            genericBankBlock.arrowDown.classList.add("hidden");
-            genericBankBlock.arrowUp.classList.remove("hidden");
-          } else {
-            genericBankBlock.arrowUp.classList.add("hidden");
-            genericBankBlock.arrowDown.classList.remove("hidden");
-          }
-          genericBankBlock.body.style.height = genericBankBlock.opened
-            ? genericBankBlock.height + "px"
-            : 0;
-        });
+      genericBankBlock.header.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        genericBankBlock.opened = !genericBankBlock.opened;
+        if (genericBankBlock.opened) {
+          genericBankBlock.arrowDown.classList.add("hidden");
+          genericBankBlock.arrowUp.classList.remove("hidden");
+        } else {
+          genericBankBlock.arrowUp.classList.add("hidden");
+          genericBankBlock.arrowDown.classList.remove("hidden");
+        }
+        genericBankBlock.body.style.height = genericBankBlock.opened
+          ? genericBankBlock.height + "px"
+          : 0;
+      });
 
-        document.querySelector(".site-menu-overlay").addEventListener("click", e => {
+      document
+        .querySelector(".site-menu-overlay")
+        .addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
           siteMenu.classList.remove("open");
           hamburger.classList.remove("active");
-        })
+        });
 
-        const hamburger = document.querySelector(".hamburger-menu");
-        const siteMenu = document.querySelector(".site-menu");
-        document.querySelector(".site-menu ul").addEventListener("click", e => {
-          if (e.target.tagName.toLowerCase() === "a") {
-            if (siteMenu.classList.contains("open")) {
-              siteMenu.classList.remove("open");
-              hamburger.classList.remove("active");
-            }
-          }
-        })
-        hamburger.addEventListener("click", e => {
-          if (hamburger.classList.contains("active")) {
+      const hamburger = document.querySelector(".hamburger-menu");
+      const siteMenu = document.querySelector(".site-menu");
+      document.querySelector(".site-menu ul").addEventListener("click", (e) => {
+        if (e.target.tagName.toLowerCase() === "a") {
+          if (siteMenu.classList.contains("open")) {
+            siteMenu.classList.remove("open");
             hamburger.classList.remove("active");
-            siteMenu.classList.remove("open")
-          } else {
-            hamburger.classList.add("active");
-            siteMenu.classList.add("open")
           }
-          e.stopPropagation()
-        })
-      };
+        }
+      });
+      hamburger.addEventListener("click", (e) => {
+        if (hamburger.classList.contains("active")) {
+          hamburger.classList.remove("active");
+          siteMenu.classList.remove("open");
+        } else {
+          hamburger.classList.add("active");
+          siteMenu.classList.add("open");
+        }
+        e.stopPropagation();
+      });
+      // };
     </script>
+    <script src="./scripts/search.js"></script>
   </body>
 </html>

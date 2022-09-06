@@ -4,9 +4,9 @@
   "description": "Сайт предвыборной кампании Глеба Солуянова",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve --formats=html,njk,md,jpg,png,css,svg,woff,woff2 --input=src",
-    "build": "npx @11ty/eleventy --input=src --formats=html,njk,md,jpg,png,css,svg",
-    "build:incremental": "npx @11ty/eleventy --incremental --input=src --formats=html,njk,md,jpg,png,css,svg,woff,woff2"
+    "dev": "npx @11ty/eleventy --serve --formats=html,njk,md,jpg,png,css,svg,woff,woff2,js,json --input=src",
+    "build": "npx @11ty/eleventy --input=src --formats=html,njk,md,jpg,png,css,svg,woff,woff2,js,json",
+    "build:incremental": "npx @11ty/eleventy --incremental --input=src --formats=html,njk,md,jpg,png,css,svg,woff,woff2,json"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1"
