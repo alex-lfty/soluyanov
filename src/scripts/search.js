@@ -30,6 +30,10 @@ window.addEventListener("load", () => {
     autocomplete({
       container: "#search-autocomplete",
       placeholder: "Введите адрес",
+      translations: {
+        clearButtonTitle: "Очистить",
+        detachedCancelButtonText: "Отмена"
+      },
       getSources() {
         return [
           {
@@ -47,10 +51,11 @@ window.addEventListener("load", () => {
             },
             onSelect(params) {
               console.log("ON SELECT!", params)
+              params.setQuery(params.item.address)
               const station = stations[params.item.station]
               foundEl.innerHTML = `<div>
-                <h3>${station.name}</h3>
-                <div>${station.address}</div>
+                <div class="station-title">${station.name}</div>
+                <div class="station-address">${station.address}</div>
               </div>`
             },
             onActice() {

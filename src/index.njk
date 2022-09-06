@@ -67,25 +67,18 @@ permalink: /index.html
       </div>
     </header>
     <main>
+      <section id="search">
+        <div class="content">
+          <h2>Найдите свой избирательный участок</h2>
+          <div id="search-autocomplete"></div>
+          <div class="found-station"></div>
+        </div>
+      </section>
       <section id="about">
         <div class="content">
           <div class="wrapper">
             {% markdown %} {%- include "./content/bio.md" -%} {% endmarkdown %}
           </div>
-        </div>
-      </section>
-      <section id="search">
-        <div class="content">
-          <h2>Найдите свой избирательный участок</h2>
-          <div id="search-autocomplete"></div>
-
-            <div class="found-station"></div>
-          {# <input type="text" class="address-search-input" />
-          <div class="search-results-wrapper">
-            <div class="search-results"></div>
-            <div class="found-staion"></div>
-          </div>
-          #}
         </div>
       </section>
       <section id="program">

@@ -334,12 +334,65 @@ section#about .content .wrapper {
   margin: 0 auto;
 }
 #search {
+  margin: 0 auto 3em;
   position: relative;
 }
-
-#search .search-autocomplete {
-  --aa-search-input-height: 30px;
+@media only screen and (max-width: 700px) {
+  #search .content {
+    padding-left: var(--padding-mobile);
+    padding-right: var(--padding-mobile);
+  }
 }
+#search-autocomplete {
+  margin: 0 auto;
+}
+
+#search-autocomplete .aa-Form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search-autocomplete .aa-Label {
+  padding: 0;
+}
+.aa-Input {
+  margin: 0;
+}
+.aa-List {
+  width: 100%;
+  text-align: center;
+}
+.aa-Item {
+  padding: 0.5em 10px;
+}
+@media only screen and (max-width: 700px) {
+  .aa-Item {
+    padding: 1.0em 10px;
+  }
+}
+button.aa-SubmitButton {
+  padding: 0;
+}
+#search-autocomplete .aa-Panel {
+  z-index: 3;
+}
+#search-autocomplete .aa-DetachedSearchButton {
+  height: calc(var(--aa-search-input-height)*3);
+}
+
+#search .found-station {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#search .station-title {
+  font-size: 1.2em;
+  margin-top: 1em;
+}
+#search .station-address {
+  margin-top: 0.5em;
+  font-size: 1.1em;
+}
+
 .team-intro {
   text-align: center;
   margin: 50px 0;
