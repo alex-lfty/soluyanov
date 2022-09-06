@@ -1,7 +1,6 @@
 ymaps.ready(init);
 function init() {
-  // Создание карты.
-  window.izmailovoMap = new ymaps.Map("map", {
+  window.districtMap = new ymaps.Map("map", {
     // Координаты центра карты.
     // Порядок по умолчанию: «широта, долгота».
     // Чтобы не определять координаты центра карты вручную,
@@ -12,4 +11,5 @@ function init() {
     zoom: 12,
     controls: []
   });
+
 }

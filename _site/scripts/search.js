@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
   const { autocomplete } = window["@algolia/autocomplete-js"];
 
-  const foundEl = document.querySelector("#search .found-station")
+  const foundEl = document.querySelector("#search .found-station");
 
   Promise.all([
     fetch("../addresses.json").then((res) => res.json()),
@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
       placeholder: "Введите адрес",
       translations: {
         clearButtonTitle: "Очистить",
-        detachedCancelButtonText: "Отмена"
+        detachedCancelButtonText: "Отмена",
       },
       getSources() {
         return [
@@ -50,17 +50,40 @@ window.addEventListener("load", () => {
               },
             },
             onSelect(params) {
-              console.log("ON SELECT!", params)
-              params.setQuery(params.item.address)
-              const station = stations[params.item.station]
+              console.log("ON SELECT!", params);
+              params.setQuery(params.item.address);
+              const station = stations[params.item.station];
               foundEl.innerHTML = `<div>
                 <div class="station-title">${station.name}</div>
                 <div class="station-address">${station.address}</div>
-              </div>`
+              </div>`;
+
+              console.log(
+                `Москва, ${params.item.address}`,
+                `Москва, ${station.address}`
+              );
+              const multiRoute = new ymaps.multiRouter.MultiRoute(
+                {
+                  referencePoints: [
+                    `Москва, ${params.item.address}`,
+                    `Москва, ${station.address}`,
+                  ],
+                  params: {
+                    routingMode: "pedestrian",
+                  },
+                },
+                {
+                  // Автоматически устанавливать границы карты так,
+                  // чтобы маршрут был виден целиком.
+                  boundsAutoApply: true,
+                }
+              );
+              console.log(window.districtMap);
+              window.districtMap.geoObjects.add(multiRoute);
             },
             onActice() {
-              console.log("ON ACTIVE!")
-            }
+              console.log("ON ACTIVE!");
+            },
           },
         ];
       },
