@@ -50,18 +50,12 @@ window.addEventListener("load", () => {
               },
             },
             onSelect(params) {
-              console.log("ON SELECT!", params);
               params.setQuery(params.item.address);
               const station = stations[params.item.station];
               foundEl.innerHTML = `<div>
                 <div class="station-title">${station.name}</div>
                 <div class="station-address">${station.address}</div>
               </div>`;
-
-              console.log(
-                `Москва, ${params.item.address}`,
-                `Москва, ${station.address}`
-              );
               const multiRoute = new ymaps.multiRouter.MultiRoute(
                 {
                   referencePoints: [
@@ -73,12 +67,9 @@ window.addEventListener("load", () => {
                   },
                 },
                 {
-                  // Автоматически устанавливать границы карты так,
-                  // чтобы маршрут был виден целиком.
                   boundsAutoApply: true,
                 }
               );
-              console.log(window.districtMap);
               window.districtMap.geoObjects.add(multiRoute);
             },
             onActice() {

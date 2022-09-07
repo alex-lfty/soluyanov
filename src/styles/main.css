@@ -370,6 +370,9 @@ section#about .content .wrapper {
     padding: 1.0em 10px;
   }
 }
+#map {
+  margin: 2em auto;
+}
 button.aa-SubmitButton {
   padding: 0;
 }
