@@ -53,7 +53,7 @@ window.addEventListener("load", () => {
               params.setQuery(params.item.address);
               const station = stations[params.item.station];
               foundEl.innerHTML = `<div>
-                <div class="station-title">${station.name}</div>
+                <div class="station-title">УИК №${params.item.station} ${station.name}</div>
                 <div class="station-address">${station.address}</div>
               </div>`;
               const multiRoute = new ymaps.multiRouter.MultiRoute(
@@ -72,9 +72,6 @@ window.addEventListener("load", () => {
               );
               window.districtMap.geoObjects.removeAll()
               window.districtMap.geoObjects.add(multiRoute);
-            },
-            onActice() {
-              console.log("ON ACTIVE!");
             },
           },
         ];
