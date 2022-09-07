@@ -70,6 +70,7 @@ window.addEventListener("load", () => {
                   boundsAutoApply: true,
                 }
               );
+              window.districtMap.geoObjects.removeAll()
               window.districtMap.geoObjects.add(multiRoute);
             },
             onActice() {
